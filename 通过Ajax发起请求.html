@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./lib/jquery.js"></script>
+</head>
+
+<body>
+    <div>
+        <button id="getBtn">获取数据</button>
+        <button id="postBtn">修改并获取</button>
+    </div>
+    <script>
+        $(function () {
+            // 获取
+            $("#getBtn").on("click", function () {
+                $.ajax({
+                    type: 'get',
+                    url: 'http://www.liulongbin.top:3006/api/getbooks',
+                    data: {},
+                    success: function (res) {
+                        console.log(res);
+                    }
+                });
+            });
+            //修改
+            $("#postBtn").on("click", function () {
+                $.ajax({
+                    type: 'post',
+                    url: 'http://www.liulongbin.top:3006/api/addbook',
+                    data: {
+                        bookname: '测试二',
+                        author: '李四',
+                        publisher: '南京图书出版社'
+                    },
+                    success: function (res) {
+                        console.log(res);
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+
+</html>
