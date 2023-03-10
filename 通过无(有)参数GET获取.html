@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./lib/jquery.js"></script>
+</head>
+
+<body>
+    <button id="onbtn">获取无参数数据</button>
+    <button id="btn">获取有参数数据</button>
+    <script>
+        $(function () {
+            //无参数
+            $("#onbtn").on("click", function () {
+                $.get('http://www.liulongbin.top:3006/api/getbooks', function (res) {
+                    console.log(res);
+                });
+            });
+            // 有参数
+            $("#btn").on("click", function () {
+                $.get('http://www.liulongbin.top:3006/api/getbooks', {id:1}, function (res) {
+                    console.log(res);
+                });
+            })
+        });
+    </script>
+</body>
+
+</html>
